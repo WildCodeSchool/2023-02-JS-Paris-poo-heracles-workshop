@@ -94,7 +94,7 @@ class Arena {
    * @returns Boolean
    */
   CheckNoMonster(fighter) {
-    return this.monsters.some(monster => monster != fighter && monster.isAlive() && (monster.x === fighter.x && monster.y === fighter.y))
+    return this.monsters.some(monster => monster.isAlive() && (monster.x === fighter.x && monster.y === fighter.y))
   }
 
   /**

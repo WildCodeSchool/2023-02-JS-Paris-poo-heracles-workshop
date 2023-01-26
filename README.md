@@ -6,14 +6,14 @@ The deer is going to be a monster with a somewhat particular behavior, in partic
 
 > SOLID Note: You could implement deer-specific behavior directly in `Monster`. However, our hero still has a lot of beasts to fight and therefore as many specificities, which would ultimately make the `Monster` class very busy and certainly full of conditions specific to this or that subtype of monsters.
 
-> Another solution is not to touch `Monster` directly, and to create a `Hind` class (for Biche), inheriting from `Monster`, which will contain the code specific to the hinds. For each new type of monster with its own specificity, you add a new class. And it is still possible to instantiate a "basic" monster if you wish. This is the "Open/Close Principle" of SOLID. The classes, once defined, should remain "closed" to any modification (which would not concern all the objects of this class). If you happen to encounter such a case, the class must however be open to an extension, you must be able to create a child class easily.
+> Another solution is not to touch `Monster` directly, and to create a `Hind` class, inheriting from `Monster`, which will contain the code specific to the hinds. For each new type of monster with its own specificity, you add a new class. And it is still possible to instantiate a "basic" monster if you wish. This is the "Open/Close Principle" of SOLID. The classes, once defined, should remain "closed" to any modification (which would not concern all the objects of this class). If you happen to encounter such a case, the class must however be open to an extension, you must be able to create a child class easily.
 
 In your new `Hind` class, add an `image` property with the value *hind.svg*.
 Remember to import your new class in the *index.html* (Pay attention to the order of imports)
 
 In the *index.js* file, modify the instantiation of a `Monster` by a `Hind`.
 
-1. Each time the hero has finished moving, the monsters with the ability to move will do so, using the `move()` method themselves, which already contains all the movement logic (directions, checkboxes. ..). We must therefore modify our `move()` methods so that it can react to different *moveable* `Fighters`. So add a second `fighter` parameter (The `Fighter` moved) to the method and fix the code accordingly.
+1. Each time the hero has finished moving, the monsters with the ability to move will do so, using the `move()` method themselves, which already contains all the movement logic (directions, tile checking...). We must therefore modify our `move()` methods so that it can react to different *moveable* `Fighters`. So add a second `fighter` parameter (The `Fighter` moved) to the method and fix the code accordingly.
 
 2. The *gameplay* will be as follows: the hero moves then, if his move was successful, all the monsters that have the ability move in turn. To differentiate which `Fighters` can move, add a `moveable` property to Fighters which is `false` by default. Pass it to `true` in `Hero` and `Hind` class.
 
